@@ -1,0 +1,55 @@
+
+
+<html>
+<head>
+<title>
+Home
+</title>
+<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css')}}"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js')}}"></script>
+	  
+	  <div>
+	  
+	
+	<div class="parallax-container">
+    <div class="parallax"><img src="https://image.freepik.com/free-vector/travel-safe-background-in-hand-painted-style_23-2147532693.jpg"></div>
+  </div>
+  
+  <div class="section white">
+    <div class="row container">
+      
+	  <h4 align="center" class="#01579b light-blue-text darken-4-text">Here are your friend's scans!!</h4>
+  {% for ch in veh %}
+  <h5 align="center" class="#01579b light-blue-text darken-4-text">{{ ch }}</h5>
+  {% else %}
+  <h5> No data </h5>
+  {% endfor %}
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="http://41.media.tumblr.com/ea7cdeacd280aefd09f3fcb0616fe844/tumblr_inline_nykrvoYvsq1ti46h2_1280.jpg"></div>
+  </div>
+	
+	<script>
+	$(document).ready(function(){
+      $('.parallax').parallax();
+    });
+	</script>
+	</div> 
+  <div class="row">
+  
+<a class="waves-effect right waves-red btn-flat #ffffff white-text" style="margin-top:-5.5%;font-size:200%" href="{{ url_for('logout') }}">Logout</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<html>
+
+<head>
+<title>
+TRAVEL SAFE USING PYTHON
+</title>
+<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css')}}"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js')}}"></script>
+
+    
+	<section>
+	 
+    <nav class="#80d8ff light-blue accent-1">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down N/A transparent">
+          <li><a class="waves-effect waves-light btn modal-trigger #80d8ff light-blue accent-1" href="#add1" style="margin-top:10%">Add friend</a></li>
+          <li><a class="waves-effect waves-light btn modal-trigger #80d8ff light-blue accent-1" href="#friends" style="margin-top:10%">View friends</a></li>
+		  <li><a class="waves-effect waves-light btn modal-trigger #80d8ff light-blue accent-1" href="#change" style="margin-top:8%">change password</a></li>
+		  <li><a class="waves-effect waves-light btn modal-trigger #80d8ff light-blue accent-1" href="{{ url_for('checkin') }}" style="margin-top:13%">check</a></li>
+		  <li><a class="waves-effect waves-light btn modal-trigger #80d8ff light-blue accent-1" href="{{ url_for('map') }}" style="margin-top:14%">map</a></li>
+		  <li><a class="waves-effect waves-light btn modal-trigger #80d8ff light-blue accent-1" href="{{ url_for('mapimg') }}" style="margin-top:8%">map with image</a></li>
+		  <li><a class="waves-effect waves-light btn modal-trigger #80d8ff light-blue accent-1" href="{{ url_for('logout') }}" style="margin-top:10%">Logout</a></li>
+        </ul>
+      </div>
+	  <div>
+<div id="add1" class="modal">
+    <div class="modal-content">
+      <h4 class="center black-text">Add Friend</h4>
+	</div>
+	<div>
+      <form action="{{ url_for('add_friend') }}" method="post">
+        <div class="input-field col s10 offset-s1">
+          <input type="text" id="fn" name="fn" class="validate black-text" >
+          <label for="fn">Friend's Phone Number</label>
+        </div>
+        <br>
+    </div>
+    <div class="modal-footer">
+	  <div class="center">
+      <button class="btn red darken-1 large waves-effect waves-light col offset-s1" style="margin-top:3%" type="submit" name="action">Submit
+	   <i class="mdi-content-send right"></i></button>
+	  </div>
+    </div>
+	</form>
+  </div>
+  
+
+<div id="change" class="modal">
+    <div class="modal-content">
+      <h4 class="center black-text">Change Password</h4>
+	</div>
+	<div>
+      <form action="{{ url_for('password') }}" method="post">
+        <div class="input-field col s10 offset-s1">
+          <input type="text" id="npw" name="npw" class="validate black-text" >
+          <label for="npw">Enter new password</label>
+        </div>
+		<div class="input-field col s10 offset-s1">
+          <input type="text" id="cpw" name="cpw" class="validate black-text" >
+          <label for="cpw">Confirm password</label>
+        </div>
+        <br>
+    </div>
+    <div class="modal-footer">
+	  <div class="center">
+      <button class="btn red darken-1 large waves-effect waves-light col offset-s1" style="margin-top:3%" type="submit" name="action">Submit
+	   <i class="mdi-content-send right"></i></button>
+	  </div>
+    </div>
+	</form>
+  </div>
+ 
+  
+  
+  </div>
+    </nav>
+</section>
+	
+	<div class="parallax-container">
+      <div class="parallax"><img src="http://talesofatraveladdict.com/wp-content/uploads/2015/04/world_traveler-1024x708.jpg"></div>
+    </div>
+	
+	
+	   
+	   
+<div class="row" style="margin-top:2%">
+    <div class="col s12">
+      <ul class="tabs" >
+        <li class="tab col s3 #536dfe indigo accent-2 " ><a class="active #000000 black-text"  href="#upload">Upload QR code</a></li>
+        <li class="tab col s3 #536dfe indigo accent-2" ><a class="#000000 black-text" href="#message">Send SOS Message</a></li>
+      </ul>
+    </div>
+	
+    <div id="upload" class="col s12" >
+	<div class="center" style="margin-top:2%">
+	<h3 class="header light black-text darken-1">Upload QR Code</h3>
+	</div>
+	<form action="/upload" method="post" enctype=multipart/form-data style="margin-top:0%">
+	<div class="col s6 offset-s2 card-panel hoverable" style="margin-left:25%">
+	<div class="file-field input-field">
+      <input class="file-path validate " type="text"/>
+	  <div>
+	  <input type="file" name="file"/>
+      </div>
+	  </div>
+	  </div>
+	  
+	  <div class="center">
+      <button class="btn red darken-1 large waves-effect waves-light col offset-s1" style="margin-top:3%" type="submit" name="action">Submit
+	   <i class="mdi-content-send right"></i></button>
+	  </div>
+	  </form>
+	  </div>
+	
+    <div id="message" class="col s12" >
+	<div class="center" style="margin-top:2%">
+	<h3 class="header light black-text darken-1">Send SOS Message</h3>
+	</div>
+	<div class="row">
+	<div class="center">
+	<a class="btn-floating btn-large waves-effect waves-light red" href="{{ url_for('message') }}"><i class="mdi-action-settings-remote" href="{{ url_for('message') }}"></i></a>
+	</div></div>
+	</div>
+    
+  </div>
+  
+  
+  <script>
+   $(document).ready(function(){
+    $('ul.tabs').tabs('select_tab', 'tab_id');
+  });
+</script>
+
+
+<div class="parallax-container">
+    <div class="parallax"><img src="http://79.170.44.96/cifftravelsandtours.com.ng/wp-content/uploads/2014/07/CiffTravelandTours_Banner1.png"></div>
+  </div>
+	
+	
+ 	
+	
+	
+	<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">TRAVEL SAFE</h5>
+                <p class="grey-text text-lighten-4">STOP WORRYING about the potholes in the road & ENJOY THE JOURNEY!!</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Mail us at :</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" >vaishnavivelishetty93@gmail.com</a></li>
+                  <li><a class="grey-text text-lighten-3" >kavyav30@gmail.com</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 Copyright Text
+            
+            </div>
+          </div>
+        </footer>
+	</div>
+
+
+<div id="friends" class="modal">
+    <div class="modal-content">
+      <div class="center">
+	  <h3>Friends</h3>
+    <table class="centered hoverable">
+      {% for entry in entries: %}
+          <tr><td>{{ entry.num }}</td></tr>
+      {% else: %}
+          <tr><td>No friends yet</td></tr>
+      {% endfor %}
+	  </div>
+    </div>
+
+  </div>
+<script>
+	$(document).ready(function(){
+      $('.parallax').parallax();
+    });
+	</script>
+<script>
+  $(document).ready(function(){
+    $('.modal-trigger').leanModal({dismissible: true});
+  });
+</script> 
+
+</body>
+</html>
