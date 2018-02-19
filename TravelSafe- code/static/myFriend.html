@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>
+Home
+</title>
+<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+	  
+  <div class="row">
+  
+<a class="waves-effect right waves-red btn-flat" style="margin-top:-5.5%;font-size:200%" href="{{ url_for('logout') }}">Logout</a>
+<div class="container">
+      <table class="hoverable centered" style="margin-top:2%">
+        <thead>
+          <tr>
+              <th data-field="id">Driver ID</th>
+              <th data-field="name">Vehicle Number</th>
+              <th data-field="price">Time</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for entry in entries  %}
+          <tr>
+            <td>{{ entry.d_id }}</td>
+            <td>{{ entry.num }}</td>
+            <td>{{ entry.stamp }}</td>
+          </tr>
+          {% else %}
+          <tr>
+            <td>No check ins yet</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+</div>
+</body>
+</html>

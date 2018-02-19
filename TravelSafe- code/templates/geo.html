@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+TRAVEL SAFE USING PYTHON
+</title>
+<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css')}}"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body background= 'http://www.psdgraphics.com/file/light-blue-background.jpg'>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js')}}"></script>
+
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+
+
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";}
+    }
+    
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;	
+	var lat= position.coords.latitude;
+	var lon= position.coords.longitude;
+	
+
+	}
+
+
+</script>
+
+</body>
+</html>
